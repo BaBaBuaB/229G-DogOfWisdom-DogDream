@@ -1,16 +1,19 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+
 
 public class PlayerController : MonoBehaviour
 {
     private InputAction moveAction;
     private InputAction fireAction;
+    private InputAction luanchRoket;
     private int Health = 5;
     private float rayDistance = 200f;
     public GameObject vfxHitPoint;
 
     public int speed = 5;
-    public int capasity = 10;
+    public int capasity = 3;
 
     public float xRange;
     public float yRange;
@@ -22,6 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         moveAction = InputSystem.actions.FindAction("Move");
         fireAction = InputSystem.actions.FindAction("Fire");
+        luanchRoket = InputSystem.actions.FindAction("Launch");
     }
 
     // Update is called once per frame
@@ -78,9 +82,12 @@ public class PlayerController : MonoBehaviour
             if (hit.collider.CompareTag("Obstacle"))
             {
                 Instantiate(vfxHitPoint, hit.point, Quaternion.identity);
-
-
             }
+        }
+
+        if (luanchRoket.IsPressed() && capasity > 0)
+        {
+            LaunchRoket();
         }
     }
 
@@ -96,5 +103,10 @@ public class PlayerController : MonoBehaviour
                 isGameOver = true;
             }
         }
+    }
+
+    IEnumerator LaunchRoket()
+    {
+        yield return new WaitForSeconds(1);
     }
 }

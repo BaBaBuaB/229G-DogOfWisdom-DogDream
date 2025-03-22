@@ -1,13 +1,12 @@
 using UnityEngine;
 
-public class Buff : MonoBehaviour
+public class GainSpeed : Gain
 {
-    int buff = 3;
-
-    PlayerController playerCon;
-
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
+        gain = 5;
+
         var search = GameObject.Find("Player");
 
         playerCon = search.GetComponent<PlayerController>();
@@ -17,8 +16,9 @@ public class Buff : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            playerCon.speed += buff;
+            playerCon.speed += gain;
             Destroy(this.gameObject);
         }
     }
+
 }

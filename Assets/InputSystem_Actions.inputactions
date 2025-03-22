@@ -94,6 +94,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Launch",
+                    "type": "Button",
+                    "id": "725b260f-1eb6-4e60-a9ed-b260e3eb015b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -485,11 +494,22 @@
                 {
                     "name": "",
                     "id": "b3570521-e982-4660-a2f4-1cc752fbc6a3",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": "",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "95dd1a00-576b-452c-9a81-fa471c6cac8e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Launch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
