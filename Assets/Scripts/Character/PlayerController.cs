@@ -8,17 +8,24 @@ public class PlayerController : MonoBehaviour
     private InputAction moveAction;
     private InputAction fireAction;
     private InputAction luanchRoket;
+
+    [SerializeField]private Transform luanchPoint;
+    [SerializeField]private GameObject rocket;
+
     private int Health = 5;
     private float rayDistance = 200f;
     public GameObject vfxHitPoint;
 
-    public int speed = 5;
+    public float speed = 5;
     public int capasity = 3;
+    public int dmg = 2;
+
 
     public float xRange;
     public float yRange;
 
     public bool isGameOver;
+    public bool isGameWin;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,6 +43,11 @@ public class PlayerController : MonoBehaviour
             MoveSideControl();
             MoveUpControl();
             Fire();
+
+            if (capasity < 3)
+            {
+                capasity++;
+            }
         }
     }
 
@@ -81,14 +93,30 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.collider.CompareTag("Obstacle"))
             {
-                Instantiate(vfxHitPoint, hit.point, Quaternion.identity);
+                Destroy( Instantiate(vfxHitPoint, hit.point, Quaternion.identity),3);
+
+                Destroy(hit.collider.gameObject);
+
             }
+
+            if (hit.collider.CompareTag("Boss"))
+            {
+                Destroy(Instantiate(vfxHitPoint, hit.point, Quaternion.identity), 3);
+
+                Boss boss = hit.collider.GetComponent<Boss>();
+
+                boss.healthBoss -= dmg;
+            }
+
         }
 
         if (luanchRoket.IsPressed() && capasity > 0)
         {
             LaunchRoket();
+
+            capasity --;
         }
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -107,6 +135,25 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator LaunchRoket()
     {
-        yield return new WaitForSeconds(1);
+        float charging = 0;
+
+        while (luanchRoket.IsPressed())
+        {
+            charging += Time.deltaTime;
+
+            yield return null;
+
+            if (charging > 3)
+            {
+                Instantiate(rocket,luanchPoint.position,Quaternion.identity);
+
+                break;
+            }
+        }
+
+        if (charging < 2)
+        {
+            yield break;
+        }
     }
 }

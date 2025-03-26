@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class ObjectMove : MonoBehaviour
 {
-    public int speedObj;
+    public float speedObj;
 
-    private int leftBound = -10;
+    private int leftBound = -20;
     private PlayerController playerController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -3,6 +3,9 @@ using UnityEngine;
 public class TimeCheck : MonoBehaviour
 {
     public float currentTime = 100;
+    public float winDistance = 2000;
+
+    public float currentDistance = 0;
 
     public PlayerController controller;
 
@@ -24,6 +27,13 @@ public class TimeCheck : MonoBehaviour
         if (!controller.isGameOver)
         {
             currentTime -= Time.deltaTime;
+
+            currentDistance += controller.speed;
+
+            if (currentDistance >= winDistance)
+            {
+                controller.isGameWin = true;
+            }
         }
     }
 }

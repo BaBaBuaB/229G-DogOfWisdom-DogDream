@@ -494,7 +494,7 @@
                 {
                     "name": "",
                     "id": "b3570521-e982-4660-a2f4-1cc752fbc6a3",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "Tap",
                     "processors": "",
                     "groups": "",
@@ -505,7 +505,7 @@
                 {
                     "name": "",
                     "id": "95dd1a00-576b-452c-9a81-fa471c6cac8e",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
