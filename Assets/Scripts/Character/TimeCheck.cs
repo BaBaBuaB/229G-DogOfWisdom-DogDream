@@ -1,9 +1,13 @@
 using UnityEngine;
+using TMPro;
+using System;
 
 public class TimeCheck : MonoBehaviour
 {
     public float currentTime = 100;
-    public float winDistance = 2000;
+    public float winDistance = 10000;
+
+    [SerializeField] TextMeshProUGUI[] distanceTxt;
 
     public float currentDistance = 0;
 
@@ -27,13 +31,25 @@ public class TimeCheck : MonoBehaviour
         if (!controller.isGameOver)
         {
             currentTime -= Time.deltaTime;
+            TimeUpdate();
 
             currentDistance += controller.speed;
+            DistanceUpdate();
 
             if (currentDistance >= winDistance)
             {
                 controller.isGameWin = true;
             }
         }
+    }
+
+    void TimeUpdate()
+    {
+        distanceTxt[0].text = $"Time = {Convert.ToString(currentTime)}" ;
+    }
+
+    void DistanceUpdate()
+    {
+        distanceTxt[1].text = $"Distance = {Convert.ToString(currentDistance)}/{Convert.ToString(winDistance)}";
     }
 }

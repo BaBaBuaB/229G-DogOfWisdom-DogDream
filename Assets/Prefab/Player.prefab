@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 7313807994221510545}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.581, z: 0}
+  m_LocalPosition: {x: 0, y: 0.12, z: -1.572}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -280,8 +280,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.5, y: 1.5, z: 1}
+  m_Center: {x: -0.19355161, y: 0.09391999, z: -0}
 --- !u!114 &6423912088141383054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,13 +295,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   luanchPoint: {fileID: 6705141797450674534}
-  rocket: {fileID: 0}
-  vfxHitPoint: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
+  rocket: {fileID: 5104638014979309399, guid: 4bbcf5cdc3fb1d143bc3c9f22b4651b0, type: 3}
+  vfxHitPoint: {fileID: 180128, guid: 6586ff0f14125534cae2f5d8f04b7871, type: 3}
   speed: 5
-  capasity: 10
   dmg: 0
-  xRange: 3
-  yRange: 3
+  statsTxt:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  xRange: 5
+  yRange: 5
   isGameOver: 0
   isGameWin: 0
 --- !u!114 &4614468034615697763
@@ -318,6 +321,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTime: 100
   winDistance: 2000
+  distanceTxt:
+  - {fileID: 0}
+  - {fileID: 0}
   currentDistance: 0
   controller: {fileID: 0}
 --- !u!54 &8463397256539734243
@@ -345,7 +351,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 56
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!1001 &7143262790551657474
 PrefabInstance:

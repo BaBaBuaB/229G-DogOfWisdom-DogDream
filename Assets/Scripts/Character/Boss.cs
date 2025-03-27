@@ -7,11 +7,14 @@ public class Boss : MonoBehaviour
     public int[] reachDistance;
 
     private PlayerController playerController;
+    [SerializeField] GameObject bossHealth;
 
     private void Awake()
     {
         var player = GameObject.Find("Player");
         playerController = player.GetComponent<PlayerController>();
+
+        bossHealth.SetActive(true);
     }
 
     private void Update()

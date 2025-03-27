@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using TMPro;
+using System;
 
 
 public class PlayerController : MonoBehaviour
@@ -12,14 +14,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private Transform luanchPoint;
     [SerializeField]private GameObject rocket;
 
-    private int Health = 5;
+    public int health = 5;
     private float rayDistance = 200f;
     public GameObject vfxHitPoint;
 
     public float speed = 5;
-    public int capasity = 3;
+    private int capasity = 3;
     public int dmg = 2;
 
+    [SerializeField] TextMeshProUGUI[] statsTxt;
 
     public float xRange;
     public float yRange;
@@ -33,6 +36,10 @@ public class PlayerController : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         fireAction = InputSystem.actions.FindAction("Fire");
         luanchRoket = InputSystem.actions.FindAction("Launch");
+
+        AmmoDisplay();
+        HealthDisplay();
+        SpeedDisplay();
     }
 
     // Update is called once per frame
@@ -47,6 +54,7 @@ public class PlayerController : MonoBehaviour
             if (capasity < 3)
             {
                 capasity++;
+                AmmoDisplay();
             }
         }
     }
@@ -110,26 +118,37 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (luanchRoket.IsPressed() && capasity > 0)
+        if (luanchRoket.triggered && capasity > 0)
         {
-            LaunchRoket();
+             StartCoroutine(LaunchRoket());
+
+            //Instantiate(rocket, luanchPoint.position, Quaternion.identity);
 
             capasity --;
+            AmmoDisplay();
         }
 
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+
         if (collision.gameObject.CompareTag("Obstacle")) 
         {
-            Health -= 1;
             Destroy(collision.gameObject);
 
-            if (Health <= 0)
-            {
-                isGameOver = true;
-            }
+            TakeDamages(dmg);
+        }
+    }
+
+    public void TakeDamages(int damages)
+    {
+        health -= damages;
+        HealthDisplay();
+
+        if (health <= 0)
+        {
+            isGameOver = true;
         }
     }
 
@@ -143,7 +162,7 @@ public class PlayerController : MonoBehaviour
 
             yield return null;
 
-            if (charging > 3)
+            if (charging > 2)
             {
                 Instantiate(rocket,luanchPoint.position,Quaternion.identity);
 
@@ -155,5 +174,20 @@ public class PlayerController : MonoBehaviour
         {
             yield break;
         }
+    }
+
+    void AmmoDisplay()
+    {
+        statsTxt[0].text = $" = {Convert.ToString(capasity)}";
+    }
+
+    public void HealthDisplay()
+    {
+        statsTxt[1].text = $" = {Convert.ToString(health)}";
+    }
+
+    public void SpeedDisplay()
+    {
+        statsTxt[2].text = $"Time = {Convert.ToString(speed)}";
     }
 }

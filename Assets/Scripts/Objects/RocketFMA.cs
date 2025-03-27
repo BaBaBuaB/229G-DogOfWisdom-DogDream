@@ -19,7 +19,7 @@ public class RocketFMA : MonoBehaviour
         player = go.GetComponent<PlayerController>();
         mass = GetComponent<Rigidbody>().mass;
 
-        speedRocket = player.speed * 5;
+        speedRocket = player.speed * 2;
     }
 
     private void Update()
@@ -50,6 +50,8 @@ public class RocketFMA : MonoBehaviour
         if (!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("Boss")) 
         {
             Destroy(collision.gameObject);
+
+            ForceCalculate();
         }
 
         if (collision.gameObject.CompareTag("Boss"))
@@ -58,7 +60,5 @@ public class RocketFMA : MonoBehaviour
 
             boss.healthBoss -= player.dmg * 10;
         }
-
-        Destroy(this.gameObject);
     }
 }
