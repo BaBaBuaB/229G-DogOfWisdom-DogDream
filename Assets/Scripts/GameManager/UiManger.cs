@@ -12,7 +12,7 @@ public class UiManger : MonoBehaviour
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        SceneManager.LoadScene(currentSceneIndex+1);
+        SceneManager.LoadSceneAsync(currentSceneIndex+1, LoadSceneMode.Single);
     }
 
     public void GotoSetting()

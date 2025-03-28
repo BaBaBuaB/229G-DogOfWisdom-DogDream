@@ -199,6 +199,6 @@ public class PlayerController : MonoBehaviour
 
     public void SpeedDisplay()
     {
-        statsTxt[2].text = $"Time = {Convert.ToString(speed)}";
+        statsTxt[2].text = $"Speed = {Convert.ToString(speed)}";
     }
 }

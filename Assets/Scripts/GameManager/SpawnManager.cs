@@ -28,6 +28,8 @@ public class SpawnManager : MonoBehaviour
             InvokeRepeating(nameof(Spawn), 1, 3);
         }*/
 
+        Debug.Log("Start");
+
         StartCoroutine(SpawnCorontine());
     }
 

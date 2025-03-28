@@ -7,13 +7,14 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     public int healthBoss = 100;
-    public int[] reachDistance;
     [SerializeField] TextMeshProUGUI bossHealth;
 
     private PlayerController playerController;
 
     private void Awake()
     {
+        Debug.Log("Start");
+
         var player = GameObject.Find("Player");
         playerController = player.GetComponent<PlayerController>();
 

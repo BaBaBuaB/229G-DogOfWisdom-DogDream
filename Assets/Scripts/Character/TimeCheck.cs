@@ -5,7 +5,7 @@ using System;
 public class TimeCheck : MonoBehaviour
 {
     public float currentTime = 100;
-    private float winDistance = 500;
+    private float winDistance = 50000;
 
     [SerializeField] TextMeshProUGUI[] distanceTxt;
 
