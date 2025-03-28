@@ -56,7 +56,7 @@ public class SpawnManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
 
-        while (!playerController.isGameOver)
+        while (!playerController.isGameOver && !playerController.isGameWin && !playerController.isGamePause)
         {
             do
             {

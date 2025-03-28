@@ -3,18 +3,31 @@ using UnityEngine.SceneManagement;
 
 public class UiManger : MonoBehaviour
 {
-    void GototheStage()
+    public void GotoMainMenu()
     {
-        SceneManager.LoadScene("FirstStage");
+        SceneManager.LoadScene(0);
     }
 
-    void GotoSetting()
+    public void GotoNextScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        SceneManager.LoadScene(currentSceneIndex+1);
+    }
+
+    public void GotoSetting()
     {
 
     }
 
-    void ExitGame()
+    public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void ReStart()
+    {
+        var activeScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(activeScene.name);
     }
 }

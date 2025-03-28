@@ -5,7 +5,7 @@ using System;
 public class TimeCheck : MonoBehaviour
 {
     public float currentTime = 100;
-    public float winDistance = 10000;
+    private float winDistance = 500;
 
     [SerializeField] TextMeshProUGUI[] distanceTxt;
 
@@ -22,25 +22,27 @@ public class TimeCheck : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        if (currentTime <= 0)
-        {
-            controller.isGameOver = true;
-        }
-
-        if (!controller.isGameOver)
-        {
-            currentTime -= Time.deltaTime;
-            TimeUpdate();
-
-            currentDistance += controller.speed;
-            DistanceUpdate();
-
-            if (currentDistance >= winDistance)
+        
+        
+            if (!controller.isGameOver)
             {
-                controller.isGameWin = true;
+                if (currentTime <= 0)
+                {
+                    controller.isGameOver = true;
+                }
+
+                currentTime -= Time.deltaTime;
+                TimeUpdate();
+
+                currentDistance += controller.speed;
+                DistanceUpdate();
+
+                if (currentDistance >= winDistance)
+                {
+                    controller.isGameWin = true;
+                }
             }
-        }
+        
     }
 
     void TimeUpdate()

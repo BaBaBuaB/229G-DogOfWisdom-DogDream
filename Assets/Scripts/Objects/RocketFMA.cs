@@ -58,7 +58,8 @@ public class RocketFMA : MonoBehaviour
         {
             Boss boss = collision.gameObject.GetComponent<Boss>();
 
-            boss.healthBoss -= player.dmg * 10;
+            boss.healthBoss -= player.dmg * 5;
+            boss.BossHealthUpdate();
         }
     }
 }

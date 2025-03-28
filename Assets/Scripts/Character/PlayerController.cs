@@ -10,12 +10,14 @@ public class PlayerController : MonoBehaviour
     private InputAction moveAction;
     private InputAction fireAction;
     private InputAction luanchRoket;
+    public InputAction setting;
+    private float timeToReload = 0;
 
     [SerializeField]private Transform luanchPoint;
     [SerializeField]private GameObject rocket;
 
     public int health = 5;
-    private float rayDistance = 200f;
+    private float rayDistance = 300f;
     public GameObject vfxHitPoint;
 
     public float speed = 5;
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour
     public float xRange;
     public float yRange;
 
+    public bool isGamePause;
     public bool isGameOver;
     public bool isGameWin;
 
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         fireAction = InputSystem.actions.FindAction("Fire");
         luanchRoket = InputSystem.actions.FindAction("Launch");
+        setting = InputSystem.actions.FindAction("Setting");
 
         AmmoDisplay();
         HealthDisplay();
@@ -45,7 +49,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isGameOver)
+        if (!isGameOver && !isGameWin && !isGamePause)
         {
             MoveSideControl();
             MoveUpControl();
@@ -53,8 +57,13 @@ public class PlayerController : MonoBehaviour
 
             if (capasity < 3)
             {
-                capasity++;
-                AmmoDisplay();
+                timeToReload += Time.deltaTime;
+
+                if (timeToReload >= 3)
+                {
+                    capasity++;
+                    AmmoDisplay();
+                }
             }
         }
     }
@@ -114,6 +123,7 @@ public class PlayerController : MonoBehaviour
                 Boss boss = hit.collider.GetComponent<Boss>();
 
                 boss.healthBoss -= dmg;
+                boss.BossHealthUpdate();
             }
 
         }
@@ -132,12 +142,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        ObjAffect obs = collision.gameObject.GetComponent<ObjAffect>();
 
         if (collision.gameObject.CompareTag("Obstacle")) 
         {
-            Destroy(collision.gameObject);
+            TakeDamages(obs.damages);
 
-            TakeDamages(dmg);
+            Destroy(collision.gameObject);
         }
     }
 

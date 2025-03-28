@@ -3,8 +3,8 @@
 --- !u!1 &4422262575418621619
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 3266445163438418830, guid: bac1a7c26c480be42b262e75fee2805c, type: 3}
-  m_PrefabInstance: {fileID: 2643643414471798680}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
@@ -19,8 +19,8 @@ GameObject:
 --- !u!4 &3546179668323146305
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2747035507194753332, guid: bac1a7c26c480be42b262e75fee2805c, type: 3}
-  m_PrefabInstance: {fileID: 2643643414471798680}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4422262575418621619}
   serializedVersion: 2
@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 935480862946490336}
   - component: {fileID: 7753741838202181673}
   - component: {fileID: 4430257700678412624}
+  - component: {fileID: 2101882820399369605}
   m_Layer: 0
   m_Name: SuperMan
   m_TagString: Obstacle
@@ -100,11 +101,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedObj: 0
+--- !u!114 &2101882820399369605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7772747371927184681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35895c8d5d447264c80aa05c35104dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damages: 1
+  minusTimes: 5
+  minusDistance: 100
 --- !u!1 &8485925340501743886
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 5825816723670520663, guid: bac1a7c26c480be42b262e75fee2805c, type: 3}
-  m_PrefabInstance: {fileID: 2643643414471798680}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
@@ -121,8 +137,8 @@ GameObject:
 --- !u!4 &169074159384490261
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 3345992072677507180, guid: bac1a7c26c480be42b262e75fee2805c, type: 3}
-  m_PrefabInstance: {fileID: 2643643414471798680}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8485925340501743886}
   serializedVersion: 2
@@ -136,16 +152,16 @@ Transform:
 --- !u!33 &1143693748928708731
 MeshFilter:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 484265962138597670, guid: bac1a7c26c480be42b262e75fee2805c, type: 3}
-  m_PrefabInstance: {fileID: 2643643414471798680}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8485925340501743886}
   m_Mesh: {fileID: -2432090755550338912, guid: c554053df80d9e34a81e3a55bcc010ad, type: 3}
 --- !u!23 &8306021058790718081
 MeshRenderer:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4007587335128898994, guid: bac1a7c26c480be42b262e75fee2805c, type: 3}
-  m_PrefabInstance: {fileID: 2643643414471798680}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8485925340501743886}
   m_Enabled: 1
@@ -186,61 +202,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1001 &2643643414471798680
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 935480862946490336}
-    m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalRotation.z
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Name
-      value: Superman
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 0}

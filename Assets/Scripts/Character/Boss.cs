@@ -1,3 +1,6 @@
+using NUnit.Framework;
+using System;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -5,24 +8,22 @@ public class Boss : MonoBehaviour
 {
     public int healthBoss = 100;
     public int[] reachDistance;
+    [SerializeField] TextMeshProUGUI bossHealth;
 
     private PlayerController playerController;
-    [SerializeField] GameObject bossHealth;
 
     private void Awake()
     {
         var player = GameObject.Find("Player");
         playerController = player.GetComponent<PlayerController>();
 
-        bossHealth.SetActive(true);
+        BossHealthUpdate();
     }
 
     private void Update()
     {
         if (!playerController.isGameOver)
         {
-            Move();
-
             if (healthBoss <= 0)
             {
                 playerController.isGameWin = true;
@@ -30,11 +31,8 @@ public class Boss : MonoBehaviour
         }
     }
 
-    void Move()
+    public void BossHealthUpdate()
     {
-        if (transform.position.y < reachDistance[0])
-        {
-            
-        }
+        bossHealth.text = $"= {Convert.ToString(healthBoss)}";
     }
 }

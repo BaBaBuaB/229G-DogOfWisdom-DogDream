@@ -3,11 +3,17 @@ using UnityEngine;
 public class ObjAffect : MonoBehaviour
 {
     public int damages = 1;
-    public int minusTimes = 10;
-    public int minusDistance = 100;
+    public int minusTimes;
+    public int minusDistance;
 
-    protected virtual void Cando()
+    private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.CompareTag("Player")) 
+        {
+            TimeCheck timeCheck = collision.gameObject.GetComponent<TimeCheck>();
 
+            timeCheck.currentTime -= minusTimes;
+            timeCheck.currentDistance -= minusDistance;
+        }
     }
 }
