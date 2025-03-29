@@ -1454,18 +1454,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 541874443}
-    - target: {fileID: 3391518771962400925, guid: 934f00d4efac8b749bfb69f9f400ea87, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResumeGame
-      objectReference: {fileID: 0}
     - target: {fileID: 4861728742454511677, guid: 934f00d4efac8b749bfb69f9f400ea87, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 541874441}
-    - target: {fileID: 4861728742454511677, guid: 934f00d4efac8b749bfb69f9f400ea87, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GotoMainMenu
-      objectReference: {fileID: 0}
     - target: {fileID: 8855475992908760869, guid: 934f00d4efac8b749bfb69f9f400ea87, type: 3}
       propertyPath: m_Pivot.x
       value: 0

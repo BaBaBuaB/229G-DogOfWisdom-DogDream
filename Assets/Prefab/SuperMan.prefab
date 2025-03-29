@@ -114,8 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damages: 1
-  minusTimes: 5
-  minusDistance: 100
+  minusTimes: 10
+  minusDistance: 1000
 --- !u!1 &8485925340501743886
 GameObject:
   m_ObjectHideFlags: 0

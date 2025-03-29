@@ -19,11 +19,6 @@ public class GainSpeed : Gain
             playerCon.speed += gain;
             playerCon.SpeedDisplay();
 
-            if (playerCon.health < 5)
-            {
-                playerCon.health += gain;
-                playerCon.HealthDisplay();
-            }
 
             Destroy(this.gameObject);
         }

@@ -294,8 +294,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678f79db797c3db428e79cf976879df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setting:
+    m_Name: Setting
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 6ca41580-dbb8-47c6-a860-26400266b6a5
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   luanchPoint: {fileID: 6705141797450674534}
   rocket: {fileID: 5104638014979309399, guid: 4bbcf5cdc3fb1d143bc3c9f22b4651b0, type: 3}
+  health: 5
   vfxHitPoint: {fileID: 180128, guid: 6586ff0f14125534cae2f5d8f04b7871, type: 3}
   speed: 5
   dmg: 0
@@ -305,6 +315,7 @@ MonoBehaviour:
   - {fileID: 0}
   xRange: 5
   yRange: 5
+  isGamePause: 0
   isGameOver: 0
   isGameWin: 0
 --- !u!114 &4614468034615697763
@@ -320,7 +331,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTime: 100
-  winDistance: 2000
   distanceTxt:
   - {fileID: 0}
   - {fileID: 0}
